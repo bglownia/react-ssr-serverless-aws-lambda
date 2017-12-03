@@ -1,0 +1,25 @@
+.HeroesOrigins {
+  font-size: 20px;
+  &__List {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+  }
+  &__Item {
+    margin: 5px;
+    padding: 5px;
+  }
+  &__Link {
+    text-decoration: none;
+    &, &:link, &:visited, &:active {
+      color: #1a0dab;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

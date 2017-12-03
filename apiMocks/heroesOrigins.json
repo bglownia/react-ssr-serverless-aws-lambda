@@ -1,0 +1,6 @@
+{
+  "data": [
+    { "label": "DC", "slug": "dc"},
+    { "label": "Marvel", "slug": "marvel"}
+  ]
+}

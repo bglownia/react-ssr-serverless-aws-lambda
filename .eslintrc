@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "rules": {
+      "jsx-a11y/anchor-is-valid": [ "error", {
+        "components": [ "Link" ],
+        "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+        "aspects": [ "noHref", "invalidHref", "preferButton" ]
+      }]
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "data": [
+    { "name": "Superman" },
+    { "name": "Batman" },
+    { "name": "Wonder Woman"},
+    { "name": "The Flash"},
+    { "name": "Aquaman"},
+    { "name": "Atom"},
+    { "name": "Batgirl"},
+    { "name": "Batwoman"},
+    { "name": "Green Arrow"},
+    { "name": "Hawkgirl"}
+  ]
+}
