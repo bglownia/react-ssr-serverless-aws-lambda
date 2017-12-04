@@ -10,6 +10,9 @@ const Express = require('express');
 const app = new Express();
 const port = 8000;
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'src'));
+
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
@@ -21,7 +24,7 @@ app.get('/api/*', (req, res) => {
 });
 
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'src', '/index.html'));
+  res.render('index', { markup: '', preloadedState: '{}' });
 });
 
 /* eslint-disable no-console */
