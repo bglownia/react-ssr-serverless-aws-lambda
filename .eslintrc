@@ -7,12 +7,12 @@
         "jest": true
     },
     "rules": {
-      "function-paren-newline": ["consistent"],
+      "function-paren-newline": ["error", "consistent"],
       "jsx-a11y/anchor-is-valid": [ "error", {
         "components": [ "Link" ],
         "specialLink": [ "to", "hrefLeft", "hrefRight" ],
         "aspects": [ "noHref", "invalidHref", "preferButton" ]
-      }],
+      }]
     },
     "parserOptions": {
         "ecmaFeatures": {

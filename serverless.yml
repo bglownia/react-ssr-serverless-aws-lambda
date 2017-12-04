@@ -1,0 +1,24 @@
+service: ${file(./config.yml):service_name}
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  environment:
+    API_ENPOINT_PREFIX: "http://d28odbt9p146x6.cloudfront.net"
+
+package:
+  artifact: dist/lambda-ssr.zip
+functions:
+  ssr:
+    handler: lambda.ssr
+    events:
+      - http:
+          method: get
+          path: ${self:service}
+      - http:
+          method: any
+          path: "${self:service}/{proxy+}"
+resources:
+  Resources: ${file(cloudformation.json)}

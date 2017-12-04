@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build-browser && npm run build-lambda",
+    "build-browser": "webpack --config webpack.config.js",
+    "build-lambda": "cross-env BABEL_ENV=node webpack --config webpack.config.lambda.js",
+    "pack-lambda": "node pack-lambda-ssr.js",
+    "deploy-lambda:dev": "serverless deploy --stage dev",
+    "logs-lambda:dev": "serverless logs -f ssr -t --stage dev"
   },
   "author": "Bartłomiej Głownia bglownia@gmail.com",
   "license": "ISC",
@@ -25,6 +30,7 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "archiver": "^2.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -35,6 +41,8 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-2": "^6.24.1",
     "circular-dependency-plugin": "^4.2.1",
+    "copy-webpack-plugin": "^4.2.3",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -46,6 +54,7 @@
     "http-proxy-middleware": "^0.17.4",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "serverless": "^1.24.1",
     "style-loader": "^0.19.0",
     "webpack": "^3.9.1",
     "webpack-dev-middleware": "^1.12.2",
