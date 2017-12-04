@@ -1,3 +1,4 @@
+import 'fetch-everywhere';
 import qs from 'qs';
 import CALL_API from '../actions/callApi';
 import callApi from '../utils/api';

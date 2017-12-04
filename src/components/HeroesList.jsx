@@ -5,7 +5,6 @@ import { List } from 'immutable';
 import './HeroesList.less';
 
 export default class HeroesList extends React.Component {
-
   componentDidMount() {
     this.fetchHeroesIfNeeded();
   }
@@ -60,6 +59,7 @@ HeroesList.defaultProps = {
 };
 
 HeroesList.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
   fetchHeroesIfNeeded: PropTypes.func.isRequired,
   isFetching: PropTypes.bool,
   fetchingError: PropTypes.instanceOf(Error),

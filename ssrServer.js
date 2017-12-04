@@ -22,14 +22,13 @@ app.get('/api/*', (req, res) => {
 
 // universal routing and rendering
 app.get('*', (req, res) => {
-  const { code, data } = ssr(req.url);
-  // eslint-disable-next-line no-console
-  console.log(code, data);
-  if (`${code}`[0] === 3) {
-    res.redirect(code, data.url);
-  } else {
-    res.render('index', data);
-  }
+  ssr(req.url).then(({ code, data }) => {
+    if (`${code}`[0] === 3) {
+      res.redirect(code, data.url);
+    } else {
+      res.render('index', data);
+    }
+  });
 });
 
 // start the server

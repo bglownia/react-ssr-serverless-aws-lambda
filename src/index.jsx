@@ -6,7 +6,10 @@ import App from './components/App';
 // eslint-disable-next-line import/no-unresolved
 import configureStore from './store/configureStore.{ENV}';
 
-const store = configureStore();
+const preloadedState = window.__PRELOADED_STATE__;
+delete window.__PRELOADED_STATE__;
+
+const store = configureStore(preloadedState);
 
 render(
   <Provider store={store}>

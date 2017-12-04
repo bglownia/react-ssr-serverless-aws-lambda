@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 /* state shape
 {
@@ -19,6 +19,9 @@ export default ({
   dataKey = action => new Map(action.params),
 }) =>
   (state = initialState, action) => {
+    if (action.type === '@@redux/INIT') {
+      return fromJS(state);
+    }
     if (!types.includes(action.type)) {
       return state;
     }
